@@ -1,0 +1,16 @@
+{
+  "name": "akeno",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sen3",
+  "license": "ISC"
+}
