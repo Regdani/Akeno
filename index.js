@@ -31,15 +31,36 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split('|');
     const command = args[0].toLowerCase();
  
-    
-   switch(command) {
-  case 'embed':
-    client.commands.get('embed').execute(message, args, Discord, client);
-    break;
-  case 'kick':
-          client.commands.get('kick').execute(message, args);
-    break;
-}
+    if (command==='embed') {
+        client.commands.get('embed').execute(message, args, Discord, client);
+    } else {
+        const args = message.content.slice(prefix.length).split(/ +/);
+        const command = args.shift().toLowerCase();
+
+           switch(command) {
+          case 'ban':
+                client.commands.get('ban').execute(message, args);
+            break;
+          case 'kick':
+                client.commands.get('kick').execute(message, args);
+            break;
+          case 'clear':
+                client.commands.get('clear').execute(message, args);
+            break;
+        }
+    }
+
+
+
+
+//    switch(command) {
+//   case 'embed':
+//     client.commands.get('embed').execute(message, args, Discord, client);
+//     break;
+//   case 'kick':
+//           client.commands.get('kick').execute(message, args);
+//     break;
+// }
 });
 
 client.login('ODgxNTM2MzgzODM0MDA5NjAw.YSuQvA.AY4dEUvYyfhrRzqZO5NgPZM75EM');

@@ -1,6 +1,6 @@
 module.exports = {
     name: 'embed',
-    description: "Lorem Ipsum is simply dummy text",
+    description: "Command to create embed message!",
     async execute(message, args, Discord) {
           
  
