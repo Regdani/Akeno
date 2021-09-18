@@ -1,5 +1,3 @@
-const { execute } = require("./kick");
-
 module.exports = {
     name: 'clear',
     description: "Command for clearing messages!",
@@ -10,7 +8,7 @@ module.exports = {
         if(args[0] > 100) return message.reply("The maximum limit of clear is 100!");
         if(args[0] < 1) return message.reply("The minimum limit of clear is 1!");
 
-        await message.channel.messages.fetch({Limit: args[0]}).then(messages =>{
+        await message.channel.messages.fetch({limit: args[0]}).then(messages =>{
             message.channel.bulkDelete(messages);
         });
     }
