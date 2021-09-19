@@ -23,7 +23,7 @@ client.once('ready', () => {
     client.user.setActivity('Forced people to Isekai!', {type: 'WATCHING'}).catch(console.error);
 });
 
-// Automatic Join Role & Greet 852444488348598272
+// Automatic Join Role & Greet
 client.on('guildMemberAdd', guildMember =>{
     let groups = guildMember.guild.roles.cache.find(role => role.id === "824619357288136724");
     let info = guildMember.guild.roles.cache.find(role => role.id === "873279772401213490");
@@ -58,12 +58,12 @@ client.on('message', message =>{
                 client.commands.get('ban').execute(message, args);
             break;
           case 'kick':
-                client.commands.get('kick').execute(message, args);
+                client.commands.get('kick').execute(message, args, Discord, client);
             break;
           case 'clear':
                 client.commands.get('clear').execute(message, args);
             break;
-            case 'reactionrole':
+          case 'reactionrole':
                 client.commands.get('reactionrole').execute(message, args, Discord, client);
             break;
         }

@@ -33,7 +33,6 @@ module.exports = {
             if (user.bot) return;
             if (!reaction.message.guild) return;
  
-            
              if (reaction.emoji.name === minecraftEmoji) {
                  await reaction.message.guild.members.cache.get(user.id).roles.add(minecraftRole);
              }
@@ -59,8 +58,6 @@ module.exports = {
             if (user.bot) return;
             if (!reaction.message.guild) return;
  
- 
-           
             if (reaction.emoji.name === minecraftEmoji) {
                 await reaction.message.guild.members.cache.get(user.id).roles.remove(minecraftRole);
             }
