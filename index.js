@@ -23,6 +23,22 @@ client.once('ready', () => {
     client.user.setActivity('Forced people to Isekai!', {type: 'WATCHING'}).catch(console.error);
 });
 
+// Automatic Join Role & Greet 852444488348598272
+client.on('guildMemberAdd', guildMember =>{
+    let groups = guildMember.guild.roles.cache.find(role => role.id === "824619357288136724");
+    let info = guildMember.guild.roles.cache.find(role => role.id === "873279772401213490");
+    let tags = guildMember.guild.roles.cache.find(role => role.id === "797415211703336970");
+    let ranks = guildMember.guild.roles.cache.find(role => role.id === "852444488348598272");
+    let waitingList = guildMember.guild.roles.cache.find(role => role.id === "873675946513825884");
+
+    guildMember.roles.add(groups);
+    guildMember.roles.add(info);
+    guildMember.roles.add(tags);
+    guildMember.roles.add(ranks);
+    guildMember.roles.add(waitingList);
+    guildMember.guild.channels.cache.get('881534810164690976').send(`Welcome <@${guildMember.user.id}> to the server! Have Fun & Enjoy!`)
+});
+
 
 //Command list & settings
 client.on('message', message =>{
@@ -47,20 +63,12 @@ client.on('message', message =>{
           case 'clear':
                 client.commands.get('clear').execute(message, args);
             break;
+            case 'reactionrole':
+                client.commands.get('reactionrole').execute(message, args, Discord, client);
+            break;
         }
     }
 
-
-
-
-//    switch(command) {
-//   case 'embed':
-//     client.commands.get('embed').execute(message, args, Discord, client);
-//     break;
-//   case 'kick':
-//           client.commands.get('kick').execute(message, args);
-//     break;
-// }
 });
 
 client.login('ODgxNTM2MzgzODM0MDA5NjAw.YSuQvA.AY4dEUvYyfhrRzqZO5NgPZM75EM');
