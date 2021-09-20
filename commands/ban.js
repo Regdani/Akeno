@@ -1,14 +1,27 @@
 module.exports = {
     name: 'ban',
     description: "Command to ban members!!",
-    execute(message, args){
+    async execute(message,args, Discord){
         const target = message.mentions.users.first();
+        let avatar = target.displayAvatarURL({size: 1024, dynamic: true})
         if(target){
             const memberTarget = message.guild.members.cache.get(target.id);
             memberTarget.ban();
-            message.channel.send("User has been banned!");
-        }else{
-            message.channel.send('Cant find that member!');
+            
+            let embed = new Discord.MessageEmbed()
+                .setTitle("Banned")
+                .setDescription('**' + target.username + '** has been banned!')
+                .setThumbnail(avatar)
+                .setColor("RED")
+                .setTimestamp(message.createdAt)
+            
+            let messageEmbed = await message.channel.send(embed);
+        } else {
+             let embed = new Discord.MessageEmbed()
+                .setTitle("Error")
+                .setDescription('Cant find that member!' )
+                .setColor("RED")
+            let messageEmbed = await message.channel.send(embed);
         }
     }
 }

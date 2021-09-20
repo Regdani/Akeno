@@ -30,12 +30,20 @@ client.on('guildMemberAdd', guildMember =>{
     let tags = guildMember.guild.roles.cache.find(role => role.id === "797415211703336970");
     let ranks = guildMember.guild.roles.cache.find(role => role.id === "852444488348598272");
     let waitingList = guildMember.guild.roles.cache.find(role => role.id === "873675946513825884");
+    //only for testing
+    let test = guildMember.guild.roles.cache.find(role => role.id === "889558834979418183");
 
     guildMember.roles.add(groups);
     guildMember.roles.add(info);
     guildMember.roles.add(tags);
     guildMember.roles.add(ranks);
     guildMember.roles.add(waitingList);
+
+    //only for testing
+    if (guildMember.id == '605369294951284747') {
+        guildMember.roles.add(test);
+    }
+
     guildMember.guild.channels.cache.get('881534810164690976').send(`Welcome <@${guildMember.user.id}> to the server! Have Fun & Enjoy!`)
 });
 
@@ -55,10 +63,10 @@ client.on('message', message =>{
 
            switch(command) {
           case 'ban':
-                client.commands.get('ban').execute(message, args);
+                client.commands.get('ban').execute(message, args, Discord);
             break;
           case 'kick':
-                client.commands.get('kick').execute(message, args, Discord, client);
+                client.commands.get('kick').execute(message, args, Discord);
             break;
           case 'clear':
                 client.commands.get('clear').execute(message, args);

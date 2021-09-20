@@ -4,24 +4,27 @@ module.exports = {
     name: 'kick',
     description: "Command to kick members!",
    async execute(message, args, Discord){
-        const target = message.mentions.users.first();
+       const target = message.mentions.users.first();
+       let avatar = target.displayAvatarURL({size: 1024, dynamic: true})
         if(target){
             const memberTarget = message.guild.members.cache.get(target.id);
+            
             memberTarget.kick();
-            let url = target.AvatarURL == undefined ? target.defaultAvatarURL : target.AvatarURL
+           
             let embed = new Discord.MessageEmbed()
                 .setTitle("Kicked")
-                .setDescription(':cry: **' + target.username + '** left ' )
+                .setDescription('**' + target.username + '** has been kicked!')
+                .setThumbnail(avatar)
                 .setColor("RED")
-                .setThumbnail(url)
-            
+                .setTimestamp(message.createdAt)
+              
           let messageEmbed = await message.channel.send(embed);
         } else {
             let embed = new Discord.MessageEmbed()
                 .setTitle("Error")
                 .setDescription('Cant find that member!' )
                 .setColor("RED")
-                //.setThumbnail(target.AvatarURL)
+                
             
           let messageEmbed = await message.channel.send(embed);
            
