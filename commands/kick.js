@@ -32,25 +32,3 @@ module.exports = {
     }
 }
 
-/*
-
-/*Quit
-client.on('guildMemberRemove', member =>{
-    let embed = new Discord.RichEmbed()
-        .setDescription(':cry: **' + member.user.username + '** left ' + member.guild.name)
-        .setFooter('We are now ' + member.guild.memberCount)
-    member.guild.channels.get('CHANNEL_ID').send(embed)
- 
-});
-
-
-let url = member.user.AvatarURL == undefined ? member.user.defaultAvatarURL : member.user.avatarURL
-
-const welcome1 = new Discord.RichEmbed()
-        .setTitle(`${member.user.username} left the server`)
-        .setDescription("Please come back, it was such a good time with you :(")
-        .setColor("RED")
-        .setThumbnail(url)
-
-        member.guild.channels.get(welcome[member.guild.id].channel).send(welcome1)
-*/

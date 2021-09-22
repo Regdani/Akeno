@@ -44,7 +44,17 @@ client.on('guildMemberAdd', guildMember =>{
         guildMember.roles.add(test);
     }
 
-    guildMember.guild.channels.cache.get('881534810164690976').send(`Welcome <@${guildMember.user.id}> to the server! Have Fun & Enjoy!`)
+    
+    let avatar = guildMember.user.displayAvatarURL({size: 1024, dynamic: true})
+       
+    let embed = new Discord.MessageEmbed()
+        .setTitle("Welcome")
+        .setDescription(`**Welcome <@${guildMember.user.id}> to the server! Have Fun & Enjoy!**`)
+        .setThumbnail(avatar)
+        .setColor("BLUE")
+        .setTimestamp()
+        
+    guildMember.guild.channels.cache.get('881534810164690976').send(embed)
 });
 
 
