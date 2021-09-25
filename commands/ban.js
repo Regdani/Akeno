@@ -10,9 +10,9 @@ module.exports = {
             
             let embed = new Discord.MessageEmbed()
                 .setTitle("Banned")
-                .setDescription('**' + target.username + '** has been banned!')
+                .setDescription('**' + target.username + '** has been banned from the Manor!')
                 .setThumbnail(avatar)
-                .setColor("RED")
+                .setColor("#87ceeb")
                 .setTimestamp(message.createdAt)
             
             let messageEmbed = await message.channel.send(embed);

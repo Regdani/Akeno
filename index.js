@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
 
 // Command prefix setting 
-const prefix = '>';
+const prefix = '!';
 
 // Java rooting
 const fs = require('fs');
@@ -49,9 +49,9 @@ client.on('guildMemberAdd', guildMember =>{
        
     let embed = new Discord.MessageEmbed()
         .setTitle("Welcome")
-        .setDescription(`**Welcome <@${guildMember.user.id}> to the server! Have Fun & Enjoy!**`)
+        .setDescription(`**<@${guildMember.user.id}> has come to visit The Yokai Manor!**`)
         .setThumbnail(avatar)
-        .setColor("BLUE")
+        .setColor("#87ceeb")
         .setTimestamp()
         
     guildMember.guild.channels.cache.get('881534810164690976').send(embed)
@@ -83,6 +83,12 @@ client.on('message', message =>{
             break;
           case 'reactionrole':
                 client.commands.get('reactionrole').execute(message, args, Discord, client);
+                   break;
+            case 'reactionfaction':
+                client.commands.get('reactionfaction').execute(message, args, Discord, client);
+                   break;
+            case 'reaction18':
+                client.commands.get('reaction18').execute(message, args, Discord, client);
             break;
         }
     }

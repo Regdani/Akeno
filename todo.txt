@@ -1,2 +1,0 @@
-clear parancs
-jól nézzen ki a bot vissza jelzés

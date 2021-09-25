@@ -13,9 +13,9 @@ module.exports = {
            
             let embed = new Discord.MessageEmbed()
                 .setTitle("Kicked")
-                .setDescription('**' + target.username + '** has been kicked!')
+                .setDescription('**' + target.username + '** has been kicked out of the Manor!')
                 .setThumbnail(avatar)
-                .setColor("RED")
+                .setColor("#87ceeb")
                 .setTimestamp(message.createdAt)
               
           let messageEmbed = await message.channel.send(embed);
