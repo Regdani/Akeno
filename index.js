@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
 
 // Command prefix setting 
-const prefix = '!';
+const prefix = '>';
 
 // Java rooting
 const fs = require('fs');

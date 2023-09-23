@@ -7,7 +7,8 @@ module.exports = {
         let embed = new Discord.MessageEmbed()
             .setTitle(args[1])
             .setDescription(args[2])
-            .setColor(args[3]);
+            .setColor(args[3])
+            .setThumbnail(args[4]);
         
         let messageEmbed = await message.channel.send(embed);
       
